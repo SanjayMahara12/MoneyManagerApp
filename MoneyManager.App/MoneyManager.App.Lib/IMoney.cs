@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoneyManager.App.Lib
+﻿namespace MoneyManager.App.Lib
 {
-    interface IMoney
+    public interface IMoney
     {
         /// <summary>
         /// The amount of money this instance represents.
