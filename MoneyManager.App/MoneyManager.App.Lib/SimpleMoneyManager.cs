@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MoneyManager.App.Lib
 {
-    public class MoneyManager
+    public class SimpleMoneyManager
     {
         IEnumerable<IMoney> monies;
         IMoneyCalculator calculator;
-        public MoneyManager(IEnumerable<SimpleMoney> suppliedmonies)
+        public SimpleMoneyManager(IEnumerable<SimpleMoney> suppliedmonies)
         {
             monies = suppliedmonies;
             calculator = new MoneyCalculator();
@@ -25,7 +25,11 @@ namespace MoneyManager.App.Lib
 
         public IEnumerable<SimpleMoney> sumTotalPerCurrency()
         {
-            throw new Exception();
+            var regroupedMoneyByCurrency = monies.GroupBy(a => a.Currency)
+                            .Select(a => new SimpleMoney { Amount = a.Sum(b => b.Amount), Currency = a.Key })
+                            .ToList();
+
+            return regroupedMoneyByCurrency;
 
         }
     }

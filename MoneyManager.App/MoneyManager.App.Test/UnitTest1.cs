@@ -11,7 +11,7 @@ namespace MoneyManager.App.Test
     {
         string datalist = "";
         List<SimpleMoney> simpleMoneyList;
-        MoneyManager.App.Lib.MoneyManager moneyManager;
+        MoneyManager.App.Lib.SimpleMoneyManager moneyManager;
         public void prepareData()
         {
             List<string> datathing = datalist.Split(',').ToList();
@@ -22,7 +22,7 @@ namespace MoneyManager.App.Test
                 SimpleMoney money = new SimpleMoney(Convert.ToDecimal(str.Substring(index)), str.Substring(0, index).Trim());
                 simpleMoneyList.Add(money);
             }
-            moneyManager = new MoneyManager.App.Lib.MoneyManager(simpleMoneyList);
+            moneyManager = new MoneyManager.App.Lib.SimpleMoneyManager(simpleMoneyList);
         }
 
         [TestMethod]
